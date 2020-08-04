@@ -26,15 +26,17 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
-            this.yaw_text = new System.Windows.Forms.Label();
-            this.pitch_text = new System.Windows.Forms.Label();
-            this.roll_text = new System.Windows.Forms.Label();
+            this.qy_text = new System.Windows.Forms.Label();
+            this.qz_text = new System.Windows.Forms.Label();
+            this.qw_text = new System.Windows.Forms.Label();
             this.x_text = new System.Windows.Forms.Label();
             this.y_text = new System.Windows.Forms.Label();
             this.z_text = new System.Windows.Forms.Label();
             this.hp_text = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.qx_text = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,41 +73,41 @@
             this.listBox2.TabIndex = 3;
             this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
-            // yaw_text
+            // qy_text
             // 
-            this.yaw_text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.yaw_text.AutoSize = true;
-            this.yaw_text.Location = new System.Drawing.Point(951, 12);
-            this.yaw_text.Name = "yaw_text";
-            this.yaw_text.Size = new System.Drawing.Size(31, 13);
-            this.yaw_text.TabIndex = 4;
-            this.yaw_text.Text = "Yaw:";
+            this.qy_text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.qy_text.AutoSize = true;
+            this.qy_text.Location = new System.Drawing.Point(953, 33);
+            this.qy_text.Name = "qy_text";
+            this.qy_text.Size = new System.Drawing.Size(25, 13);
+            this.qy_text.TabIndex = 4;
+            this.qy_text.Text = "QY:";
             // 
-            // pitch_text
+            // qz_text
             // 
-            this.pitch_text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pitch_text.AutoSize = true;
-            this.pitch_text.Location = new System.Drawing.Point(951, 35);
-            this.pitch_text.Name = "pitch_text";
-            this.pitch_text.Size = new System.Drawing.Size(34, 13);
-            this.pitch_text.TabIndex = 5;
-            this.pitch_text.Text = "Pitch:";
+            this.qz_text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.qz_text.AutoSize = true;
+            this.qz_text.Location = new System.Drawing.Point(953, 56);
+            this.qz_text.Name = "qz_text";
+            this.qz_text.Size = new System.Drawing.Size(25, 13);
+            this.qz_text.TabIndex = 5;
+            this.qz_text.Text = "QZ:";
             // 
-            // roll_text
+            // qw_text
             // 
-            this.roll_text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.roll_text.AutoSize = true;
-            this.roll_text.Location = new System.Drawing.Point(951, 58);
-            this.roll_text.Name = "roll_text";
-            this.roll_text.Size = new System.Drawing.Size(28, 13);
-            this.roll_text.TabIndex = 6;
-            this.roll_text.Text = "Roll:";
+            this.qw_text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.qw_text.AutoSize = true;
+            this.qw_text.Location = new System.Drawing.Point(953, 79);
+            this.qw_text.Name = "qw_text";
+            this.qw_text.Size = new System.Drawing.Size(29, 13);
+            this.qw_text.TabIndex = 6;
+            this.qw_text.Text = "QW:";
             // 
             // x_text
             // 
             this.x_text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.x_text.AutoSize = true;
-            this.x_text.Location = new System.Drawing.Point(951, 82);
+            this.x_text.Location = new System.Drawing.Point(953, 103);
             this.x_text.Name = "x_text";
             this.x_text.Size = new System.Drawing.Size(17, 13);
             this.x_text.TabIndex = 7;
@@ -115,7 +117,7 @@
             // 
             this.y_text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.y_text.AutoSize = true;
-            this.y_text.Location = new System.Drawing.Point(951, 104);
+            this.y_text.Location = new System.Drawing.Point(953, 125);
             this.y_text.Name = "y_text";
             this.y_text.Size = new System.Drawing.Size(17, 13);
             this.y_text.TabIndex = 8;
@@ -125,7 +127,7 @@
             // 
             this.z_text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.z_text.AutoSize = true;
-            this.z_text.Location = new System.Drawing.Point(951, 126);
+            this.z_text.Location = new System.Drawing.Point(953, 147);
             this.z_text.Name = "z_text";
             this.z_text.Size = new System.Drawing.Size(17, 13);
             this.z_text.TabIndex = 9;
@@ -135,7 +137,7 @@
             // 
             this.hp_text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.hp_text.AutoSize = true;
-            this.hp_text.Location = new System.Drawing.Point(951, 147);
+            this.hp_text.Location = new System.Drawing.Point(953, 168);
             this.hp_text.Name = "hp_text";
             this.hp_text.Size = new System.Drawing.Size(25, 13);
             this.hp_text.TabIndex = 10;
@@ -163,20 +165,44 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(982, 350);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "Test";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // qx_text
+            // 
+            this.qx_text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.qx_text.AutoSize = true;
+            this.qx_text.Location = new System.Drawing.Point(953, 12);
+            this.qx_text.Name = "qx_text";
+            this.qx_text.Size = new System.Drawing.Size(25, 13);
+            this.qx_text.TabIndex = 14;
+            this.qx_text.Text = "QX:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1110, 704);
+            this.Controls.Add(this.qx_text);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.hp_text);
             this.Controls.Add(this.z_text);
             this.Controls.Add(this.y_text);
             this.Controls.Add(this.x_text);
-            this.Controls.Add(this.roll_text);
-            this.Controls.Add(this.pitch_text);
-            this.Controls.Add(this.yaw_text);
+            this.Controls.Add(this.qw_text);
+            this.Controls.Add(this.qz_text);
+            this.Controls.Add(this.qy_text);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.listBox1);
@@ -194,15 +220,17 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Label yaw_text;
-        private System.Windows.Forms.Label pitch_text;
-        private System.Windows.Forms.Label roll_text;
+        private System.Windows.Forms.Label qy_text;
+        private System.Windows.Forms.Label qz_text;
+        private System.Windows.Forms.Label qw_text;
         private System.Windows.Forms.Label x_text;
         private System.Windows.Forms.Label y_text;
         private System.Windows.Forms.Label z_text;
         private System.Windows.Forms.Label hp_text;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label qx_text;
     }
 }
 

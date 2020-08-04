@@ -10,13 +10,15 @@ namespace fixmygamemaine {
     public struct maine_actor_data {
         public int file_offset;
         public string bp_name;
-        public float yaw;
-        public float pitch;
-        public float roll;
+        public float q_x;
+        public float q_y;
+        public float q_z;
+        public float q_w;
+        public int position_offset;
         public float x;
         public float y;
         public float z;
-        public int hp_position;
+        public int hp_offset;
         public float hp;
     }
     public class MaineSave {
@@ -90,17 +92,18 @@ namespace fixmygamemaine {
 
                             binary_reader.BaseStream.Position += 1;
 
-                            float dummy = binary_reader.ReadSingle();
+                            a_data.q_x = binary_reader.ReadSingle();
+                            a_data.q_y = binary_reader.ReadSingle();
+                            a_data.q_z = binary_reader.ReadSingle();
+                            a_data.q_w = binary_reader.ReadSingle();
 
-                            a_data.yaw = binary_reader.ReadSingle();
-                            a_data.pitch = binary_reader.ReadSingle();
-                            a_data.roll = binary_reader.ReadSingle();
+                            a_data.position_offset = (int)binary_reader.BaseStream.Position;
 
                             a_data.x = binary_reader.ReadSingle();
                             a_data.y = binary_reader.ReadSingle();
                             a_data.z = binary_reader.ReadSingle();
 
-                            dummy = binary_reader.ReadSingle();
+                            float dummy = binary_reader.ReadSingle();
                             dummy = binary_reader.ReadSingle();
                             dummy = binary_reader.ReadSingle();
                             dummy = binary_reader.ReadSingle();
@@ -124,7 +127,7 @@ namespace fixmygamemaine {
 
                                     if (ap_str == "/Script/Maine.HealthLODComponent") {
                                         binary_reader.BaseStream.Position += 1;
-                                        a_data.hp_position = (int)binary_reader.BaseStream.Position;
+                                        a_data.hp_offset = (int)binary_reader.BaseStream.Position;
                                         a_data.hp = binary_reader.ReadSingle();
                                     }
 
@@ -150,7 +153,7 @@ namespace fixmygamemaine {
         public void kill_larva() {
             foreach (maine_actor_data ad in actors) {
                 if (ad.bp_name == "/Game/Blueprints/Creatures/Larva/Base/BP_Larva.BP_Larva_C") {
-                    binary_writer.BaseStream.Position = ad.hp_position;
+                    binary_writer.BaseStream.Position = ad.hp_offset;
                     binary_writer.Write((float)0.0f);
                 }
 
@@ -160,13 +163,33 @@ namespace fixmygamemaine {
 
         public void kill_everything() {
             foreach (maine_actor_data ad in actors) {
-                if (ad.hp > 0) {
-                    binary_writer.BaseStream.Position = ad.hp_position;
+                if (ad.hp > 0 && !ad.bp_name.Contains("Burgle")) {
+                    binary_writer.BaseStream.Position = ad.hp_offset;
                     binary_writer.Write((float)0.0f);
                 }
-
-                binary_writer.Flush();
             }
+
+            binary_writer.Flush();
+        }
+
+        public void move_everything_to(float x, float y, float z) {
+            foreach (maine_actor_data ad in actors) {
+                //if (ad.bp_name.Contains("Creatures") && !ad.bp_name.Contains("Burgle")) {
+                //    binary_writer.BaseStream.Position = ad.position_offset;
+                //    binary_writer.Write(x);
+                //    binary_writer.Write(y);
+                //    binary_writer.Write(z);
+                //}
+
+                if (ad.bp_name.Contains("Harvested")) {
+                    binary_writer.BaseStream.Position = ad.position_offset;
+                    binary_writer.Write(x);
+                    binary_writer.Write(y);
+                    binary_writer.Write(z);
+                }
+            }
+
+            binary_writer.Flush();
         }
 
         public void close() {

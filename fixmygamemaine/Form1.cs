@@ -54,9 +54,10 @@ namespace fixmygamemaine {
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e) {
             try {
                 maine_actor_data a_data = save_file.actors[listBox2.SelectedIndex];
-                yaw_text.Text = "Yaw: " + a_data.yaw.ToString();
-                pitch_text.Text = "Pitch: " + a_data.pitch.ToString();
-                roll_text.Text = "Roll: " + a_data.roll.ToString();
+                qx_text.Text = "QX: " + a_data.q_x.ToString();
+                qy_text.Text = "QY: " + a_data.q_y.ToString();
+                qz_text.Text = "QZ: " + a_data.q_z.ToString();
+                qw_text.Text = "QW: " + a_data.q_w.ToString();
                 x_text.Text = "X: " + a_data.x.ToString();
                 y_text.Text = "Y: " + a_data.y.ToString();
                 z_text.Text = "Z: " + a_data.z.ToString();
@@ -77,6 +78,10 @@ namespace fixmygamemaine {
             if (MessageBox.Show("Are you sure you want to kill all living things?", "Are you sure?", MessageBoxButtons.YesNo) == DialogResult.Yes) {
                 save_file.kill_everything();
             } 
+        }
+
+        private void button3_Click(object sender, EventArgs e) {
+            //save_file.move_everything_to(2503.91430664062f, 33674.51953125f, 3142.60375976562f);
         }
     }
 }
